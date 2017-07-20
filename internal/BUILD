@@ -14,10 +14,3 @@
 
 licenses(["notice"])  # Apache 2.0
 
-filegroup(
-    name = "source_tree",
-    srcs = [
-        "//internal/ngc:source_tree",
-    ] + glob(["**/*"]),
-    visibility = ["//:__pkg__"],
-)

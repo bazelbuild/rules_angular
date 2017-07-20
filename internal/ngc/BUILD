@@ -17,12 +17,6 @@ load("@build_bazel_rules_typescript//:defs.bzl", "nodejs_binary")
 
 licenses(["notice"])  # Apache 2.0
 
-filegroup(
-    name = "source_tree",
-    srcs = glob(["**/*"]),
-    visibility = ["//internal:__pkg__"],
-)
-
 ts_library(
     name = "ngc_lib",
     srcs = ["index.ts"],

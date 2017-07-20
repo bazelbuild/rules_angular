@@ -16,16 +16,6 @@ licenses(["notice"])  # Apache 2.0
 
 exports_files(["LICENSE"])
 
-filegroup(
-    name = "source_tree",
-    srcs = [
-        "//examples/basic:source_tree",
-        "//internal:source_tree",
-    ] + glob([
-        "**/*",
-    ]),
-)
-
 # Workaround for https://github.com/bazelbuild/bazel/issues/374
 filegroup(
     name = "node_modules",

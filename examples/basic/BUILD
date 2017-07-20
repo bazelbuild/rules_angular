@@ -16,11 +16,6 @@ load("//:defs.bzl", "ng_module")
 
 licenses(["notice"])  # Apache 2.0
 
-filegroup(
-    name = "source_tree",
-    srcs = glob(["**/*"]),
-    visibility = ["//:__pkg__"],
-)
 
 ng_module(
     name = "basic",

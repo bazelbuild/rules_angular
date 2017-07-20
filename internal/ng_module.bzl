@@ -68,6 +68,9 @@ def _compile_action(ctx, inputs, outputs, config_file_path):
     ctx.file_action(output=externs_file, content="")
 
   action_inputs = inputs
+  if hasattr(ctx.attr, "node_modules"):
+    action_inputs += [f for f in ctx.files.node_modules
+                      if f.path.endswith(".ts") or f.path.endswith(".json")]
   if ctx.file.tsconfig:
     action_inputs += [ctx.file.tsconfig]
 
@@ -150,6 +153,12 @@ ng_module = rule(
             default = Label("//internal/ngc"),
             executable = True,
             cfg = "host",
+        ),
+        # @// is special syntax for the "main" repository
+        # The default assumes the user specified a target "node_modules" in their
+        # root BUILD file.
+        "node_modules": attr.label(
+            default = Label("@//:node_modules")
         ),
     }),
 )

@@ -1,8 +1,7 @@
-# Turn off symlinks because they appear in the @npm//installed location
-# re-rooted under a different package, causing error:
-# Label '@npm//installed:bazel-rules_angular/... crosses boundary of subpackage
-# This is another workaround for
-# https://github.com/bazelbuild/bazel/issues/374
-# To find the folders which are normally symlinked into the project,
-# run `bazel info`
+# Don't create bazel-* symlinks in the WORKSPACE directory.
+# These require .gitignore and may scare users.
+# Also, it's a workaround for https://github.com/bazelbuild/rules_typescript/issues/12
+# which affects the common case of having `tsconfig.json` in the WORKSPACE directory.
+#
+# Instead, you should run `bazel info` to find out where the outputs went.
 build --symlink_prefix=/

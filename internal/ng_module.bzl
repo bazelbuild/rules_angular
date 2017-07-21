@@ -83,7 +83,7 @@ def _compile_action(ctx, inputs, outputs, config_file_path):
     arguments = ["-p", config_file_path]
 
   ctx.action(
-      progress_message = "Compiling Angular templates (ngc) %s" % ctx,
+      progress_message = "Compiling Angular templates (ngc) %s" % ctx.label,
       mnemonic = "AngularTemplateCompile",
       inputs = action_inputs,
       outputs = non_externs_files,

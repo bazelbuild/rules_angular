@@ -111,7 +111,7 @@ def _compile_ng(ctx):
   _devmode_compile_action(ctx, ctx.files.srcs + declarations + [tsconfig_json], [], tsconfig_json.path)
 
   return {
-    "files": set(_expected_outs(ctx)),
+    "files": depset(_expected_outs(ctx)),
     "typescript": {
       # FIXME: expose the right outputs so this looks like a ts_library
       "declarations": [],

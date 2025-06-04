@@ -1,3 +1,3 @@
 # OBSOLETE
 
-See https://github.com/angular/angular/tree/master/packages/bazel
+See https://github.com/devversion/rules_angular
